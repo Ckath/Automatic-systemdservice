@@ -1,0 +1,11 @@
+[Unit]
+Description=RSS downloader for Transmission 
+After=network.target transmission-daemon.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/automatic -f
+ExecReload=/bin/kill -s HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
